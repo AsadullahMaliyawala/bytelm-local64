@@ -1,0 +1,5 @@
+{
+  "suite": "CharBench locked suite (build_charbench.py seed 0)",
+  "sha256": "becda801323a53aa4e558e26b50544356532f487e3717d693a450fe0209a02a8",
+  "note": "Hash of locked suite files as recorded in paper_v10_numbers.json / FROZEN paper locks"
+}

@@ -1,0 +1,22 @@
+{
+  "file": "data/eval/fact200.jsonl",
+  "sha256": "545a7dcde7c65b03fb22790359eb20196732a64a55a39480d3e4de7d600a1a16",
+  "n": 200,
+  "categories": {
+    "capitals": 40,
+    "science": 40,
+    "people": 30,
+    "arithmetic": 30,
+    "geography": 30,
+    "everyday": 30
+  },
+  "excluded_against": [
+    "data/sft_v7/train.jsonl",
+    "data/sft_v7/holdout.json",
+    "data/sft_v7/short_questions.json",
+    "data/sft_v7/detail_prompts.json",
+    "data/sft/holdout_text.json",
+    "templated capitals, yes/no, and definitions in src/lct/data/sft_v7.py"
+  ],
+  "teacher_pipeline_files": []
+}

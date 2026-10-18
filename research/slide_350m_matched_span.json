@@ -1,0 +1,112 @@
+{
+  "protocol": "matched_span_min512tok_2048B",
+  "bpe_rule": "min(512 tokens, 2048 B)",
+  "local_rule": "same left-context start byte as each BPE window",
+  "paired": {
+    "text": {
+      "bpb_local64": 0.9906911761998325,
+      "bpb_bpe": 0.9447898423888139,
+      "diff_bpe_minus_local64": -0.045901333811018574,
+      "diff_lo": -0.048616815130700215,
+      "diff_hi": -0.0433977697825665,
+      "significant_0_outside_ci": true,
+      "local64_better": false,
+      "n_docs": 828,
+      "scored_bytes_local64": 4248595,
+      "scored_bytes_bpe": 4248595
+    },
+    "code": {
+      "bpb_local64": 0.6563408883676186,
+      "bpb_bpe": 0.6003194192987635,
+      "diff_bpe_minus_local64": -0.05602146906885508,
+      "diff_lo": -0.06829339608048227,
+      "diff_hi": -0.043866496527974023,
+      "significant_0_outside_ci": true,
+      "local64_better": false,
+      "n_docs": 59,
+      "scored_bytes_local64": 503114,
+      "scored_bytes_bpe": 503114
+    },
+    "math": {
+      "bpb_local64": 1.102334142783805,
+      "bpb_bpe": 1.0388251924006202,
+      "diff_bpe_minus_local64": -0.06350895038318471,
+      "diff_lo": -0.07493325789581418,
+      "diff_hi": -0.053018549475711114,
+      "significant_0_outside_ci": true,
+      "local64_better": false,
+      "n_docs": 38,
+      "scored_bytes_local64": 275797,
+      "scored_bytes_bpe": 275797
+    },
+    "overall": {
+      "bpb_local64": 0.9633564469210495,
+      "bpb_bpe": 0.915476456185929,
+      "diff_bpe_minus_local64": -0.0478799907351205,
+      "diff_lo": -0.050614435347650547,
+      "diff_hi": -0.04528942259683584,
+      "significant_0_outside_ci": true,
+      "local64_better": false,
+      "n_docs": 925,
+      "scored_bytes_local64": 5027506,
+      "scored_bytes_bpe": 5027506
+    }
+  },
+  "mean_effective_ctx_bytes": {
+    "text": {
+      "n_windows": 8676,
+      "mean_ctx_bytes_both": 1670.8876210235132,
+      "p50": 1918.0,
+      "max": 2048.0,
+      "note": "identical for BPE and local64 by construction"
+    },
+    "code": {
+      "n_windows": 1008,
+      "mean_ctx_bytes_both": 900.4444444444445,
+      "p50": 896.0,
+      "max": 1689.0,
+      "note": "identical for BPE and local64 by construction"
+    },
+    "math": {
+      "n_windows": 555,
+      "mean_ctx_bytes_both": 1538.007207207207,
+      "p50": 1606.0,
+      "max": 2048.0,
+      "note": "identical for BPE and local64 by construction"
+    }
+  },
+  "point_bpb": {
+    "text": {
+      "bpb_local64": 0.9906911761998325,
+      "bpb_bpe": 0.9447898423888139,
+      "diff": -0.045901333811018574,
+      "diff_lo": -0.048616815130700215,
+      "diff_hi": -0.0433977697825665,
+      "sig": true
+    },
+    "code": {
+      "bpb_local64": 0.6563408883676186,
+      "bpb_bpe": 0.6003194192987635,
+      "diff": -0.05602146906885508,
+      "diff_lo": -0.06829339608048227,
+      "diff_hi": -0.043866496527974023,
+      "sig": true
+    },
+    "math": {
+      "bpb_local64": 1.102334142783805,
+      "bpb_bpe": 1.0388251924006202,
+      "diff": -0.06350895038318471,
+      "diff_lo": -0.07493325789581418,
+      "diff_hi": -0.053018549475711114,
+      "sig": true
+    },
+    "overall": {
+      "bpb_local64": 0.9633564469210495,
+      "bpb_bpe": 0.915476456185929,
+      "diff": -0.0478799907351205,
+      "diff_lo": -0.050614435347650547,
+      "diff_hi": -0.04528942259683584,
+      "sig": true
+    }
+  }
+}
