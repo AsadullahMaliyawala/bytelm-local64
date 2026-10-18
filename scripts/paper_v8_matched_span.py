@@ -18,9 +18,9 @@ from lct.models.continuous_pool4 import ContinuousPool4LM  # noqa: E402
 from lct.train.ladder import bpb_from_nats  # noqa: E402
 from matched_bpe_load import load_matched_bpe  # noqa: E402
 
-OUT = Path("${LCT_DATA}/experiments/paper_v5")
+OUT = Path("./experiments/paper_v5")
 RESEARCH = ROOT / "research"
-VAL = Path("${LCT_DATA}/data/real_v3")
+VAL = Path("./data/real_v3")
 FILES = {"text": "val_text.bin", "code": "val_code.bin", "math": "val_math.bin"}
 DOMAINS = ("text", "code", "math")
 STRIDE = 512
@@ -151,8 +151,8 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     OUT.mkdir(parents=True, exist_ok=True)
     RESEARCH.mkdir(parents=True, exist_ok=True)
-    loc = load_local(Path("${LCT_DATA}/checkpoints/matched350m_local64/matched350m_local64.pt"), device)
-    bpe_m, bpe, _, _ = load_matched_bpe(Path("${LCT_DATA}/checkpoints/matched350m_bpe/matched350m_bpe.pt"), device)
+    loc = load_local(Path("./checkpoints/matched350m_local64/matched350m_local64.pt"), device)
+    bpe_m, bpe, _, _ = load_matched_bpe(Path("./checkpoints/matched350m_bpe/matched350m_bpe.pt"), device)
     tok = bpe.tok
 
     size_rows = {}

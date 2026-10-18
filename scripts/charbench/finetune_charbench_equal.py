@@ -121,8 +121,8 @@ def finetune_hf(model_id: str, train_rows: list[dict], epochs: int, batch: int, 
             clip_grad_norm_(model.parameters(), 1.0)
             opt.step()
             if step == 1 or step % 50 == 0 or step == total:
-                print({"stage": "hf_ft", "model": model_id, "step": step, "total": total, "loss": float(out.loss.item())}, flush=True)
-    out_dir = work / ("hf_ft_" + model_id.replace("/", "__"))
+                print({"stage": "hub_ft", "model": model_id, "step": step, "total": total, "loss": float(out.loss.item())}, flush=True)
+    out_dir = work / ("hub_ft_" + model_id.replace("/", "__"))
     out_dir.mkdir(parents=True, exist_ok=True)
     model.save_pretrained(out_dir)
     tok.save_pretrained(out_dir)

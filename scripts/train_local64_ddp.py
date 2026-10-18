@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Two-rank local64 training. Launch with torchrun, one process per Spark.
+"""Two-rank local64 training. Launch with torchrun, one process per GPU node.
 
 Each rank reads a disjoint slice of the same document permutation. Rank 0 writes
 one checkpoint that stores both cursors. SIGTERM finishes the current step and saves.
@@ -135,7 +135,7 @@ def main() -> None:
     parser.add_argument("--train", type=Path, required=True)
     parser.add_argument("--spans", type=Path, required=True)
     parser.add_argument("--perm", type=Path, required=True)
-    parser.add_argument("--resume", type=Path, default=Path("${LCT_DATA}/checkpoints/local64_ddp/ddp_local64.pt"))
+    parser.add_argument("--resume", type=Path, default=Path("./checkpoints/local64_ddp/ddp_local64.pt"))
     parser.add_argument("--bounds", default="", help="fineweb_end,code_end byte offsets; empty uses real_v2 constants")
     parser.add_argument("--batch", type=int, default=8)
     parser.add_argument("--accum", type=int, default=8)

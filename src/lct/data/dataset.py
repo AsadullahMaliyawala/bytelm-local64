@@ -135,10 +135,10 @@ class HFStreamCorpus(IterableDataset):
         except ImportError as e:
             raise ImportError("Install datasets to use huggingface source") from e
 
-        text_name = self.cfg.get("hf_text", "HuggingFaceFW/fineweb-edu")
+        text_name = self.cfg.get("hub_text", "HuggingFaceFW/fineweb-edu")
         # Fall back gracefully: if download fails, yield nothing and caller should use synthetic
         try:
-            ds = load_dataset(text_name, split=self.cfg.get("hf_text_split", "train"), streaming=True)
+            ds = load_dataset(text_name, split=self.cfg.get("hub_text_split", "train"), streaming=True)
             for i, row in enumerate(ds):
                 if i >= self.cfg.get("max_train_docs" if self.split == "train" else "max_val_docs", 1000):
                     break
@@ -217,7 +217,7 @@ def build_dataset(cfg: dict[str, Any], split: str = "train") -> Dataset:
 
     if source == "huggingface":
         # Materialize a small cache for DataLoader friendliness
-        cache_dir = Path(data_cfg.get("cache_dir", "data/cache")) / f"hf_{split}"
+        cache_dir = Path(data_cfg.get("cache_dir", "data/cache")) / f"hub_{split}"
         cache_dir.mkdir(parents=True, exist_ok=True)
         cache_file = cache_dir / "docs.jsonl"
         if not cache_file.exists():

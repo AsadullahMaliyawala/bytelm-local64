@@ -1,0 +1,20 @@
+# NOTICE — third-party dataset attributions
+
+This product's training mixture uses third-party corpora that are not
+redistributed in full with this repository. Frozen validation bins
+(val_text.bin, val_code.bin, val_math.bin) are hosted separately on Hugging
+Face (see README placeholder HF_LINK_VAL) and are not part of the git tree.
+
+Upstream licences:
+
+  - FineWeb-Edu (HuggingFaceFW/fineweb-edu): ODC-By 1.0; also Common Crawl Terms of Use
+  - codeparrot-clean (codeparrot/codeparrot-clean): mixed permissive per-file
+    (Apache-2.0, MIT, BSD, Unlicense, ISC, CC0, and similar)
+  - OpenWebMath (open-web-math/open-web-math): ODC-By 1.0; also Common Crawl Terms of Use
+
+The validation text is raw web data and may contain personal information
+(including email addresses). Removal requests: CONTACT.
+
+The code and released model checkpoints in this project are licensed under
+the Apache License, Version 2.0 (see LICENSE). Apache-2.0 does not apply to
+the validation or training data (upstream licences above).

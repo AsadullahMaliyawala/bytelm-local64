@@ -108,12 +108,12 @@ exp350 = parse_350m_expected()
 exp120 = parse_120m_expected()
 
 wanted350 = {
-    "local64_350m": "${LCT_DATA}/checkpoints/matched350m_local64/matched350m_local64.pt",
-    "bpe_350m": "${LCT_DATA}/checkpoints/matched350m_bpe/matched350m_bpe.pt",
+    "local64_350m": "./checkpoints/matched350m_local64/matched350m_local64.pt",
+    "bpe_350m": "./checkpoints/matched350m_bpe/matched350m_bpe.pt",
 }
 wanted120 = {
-    "local64_120m": "${LCT_DATA}/checkpoints/ladder120_shuf/ladder120_shuf_local64_s0.pt",
-    "bpe_120m": "${LCT_DATA}/checkpoints/ladder120_shuf/ladder120_shuf_bpe_s0.pt",
+    "local64_120m": "./checkpoints/ladder120_shuf/ladder120_shuf_local64_s0.pt",
+    "bpe_120m": "./checkpoints/ladder120_shuf/ladder120_shuf_bpe_s0.pt",
 }
 
 rows = []
@@ -184,7 +184,7 @@ out = {
     "D7": "PASS" if all(r.get("verdict") == "PASS" for r in rows) else "FAIL",
     "note": "350M: full-file + model-tensor; 120M: first32MB+size",
 }
-Path("${LCT_DATA}/experiments/paper_v10").mkdir(parents=True, exist_ok=True)
-Path("${LCT_DATA}/experiments/paper_v10/hash_check.json").write_text(json.dumps(out, indent=2))
+Path("./experiments/paper_v10").mkdir(parents=True, exist_ok=True)
+Path("./experiments/paper_v10/hash_check.json").write_text(json.dumps(out, indent=2))
 (ROOT / "research" / "hash_check_v10.json").write_text(json.dumps(out, indent=2))
 print(json.dumps({"D7": out["D7"], "per_file": {r["name"]: r["verdict"] for r in rows}}, indent=2), flush=True)

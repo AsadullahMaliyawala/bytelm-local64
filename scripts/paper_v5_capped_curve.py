@@ -17,10 +17,10 @@ from lct.checkpoint import load_state_dict_strict  # noqa: E402
 from lct.models.continuous_pool4 import ContinuousPool4LM  # noqa: E402
 from matched_bpe_load import load_matched_bpe  # noqa: E402
 
-OUT = Path("${LCT_DATA}/experiments/paper_v5")
+OUT = Path("./experiments/paper_v5")
 RESEARCH = ROOT / "research"
-BPE_DIR = Path("${LCT_DATA}/checkpoints/matched350m_bpe")
-LOCAL_DIR = Path("${LCT_DATA}/checkpoints/matched350m_local64")
+BPE_DIR = Path("./checkpoints/matched350m_bpe")
+LOCAL_DIR = Path("./checkpoints/matched350m_local64")
 CAP_TOK = 512
 CAP_BYTES = 1760
 FILES = {"text": "val_text.bin", "code": "val_code.bin", "math": "val_math.bin"}

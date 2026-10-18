@@ -31,13 +31,13 @@ from lct.train.ladder import bpb_from_nats  # noqa: E402
 from lct.utils import get_autocast_dtype  # noqa: E402
 from matched_bpe_load import load_matched_bpe  # noqa: E402
 
-VAL_DIR = Path("${LCT_DATA}/data/real_v3")
-SHUF_LOCAL = Path("${LCT_DATA}/checkpoints/ladder120_shuf/ladder120_shuf_local64_s0.pt")
-SHUF_BPE = Path("${LCT_DATA}/checkpoints/ladder120_shuf/ladder120_shuf_bpe_s0.pt")
-LOCAL64_350 = Path("${LCT_DATA}/checkpoints/matched350m_local64/matched350m_local64.pt")
-BPE_350 = Path("${LCT_DATA}/checkpoints/matched350m_bpe/matched350m_bpe.pt")
+VAL_DIR = Path("./data/real_v3")
+SHUF_LOCAL = Path("./checkpoints/ladder120_shuf/ladder120_shuf_local64_s0.pt")
+SHUF_BPE = Path("./checkpoints/ladder120_shuf/ladder120_shuf_bpe_s0.pt")
+LOCAL64_350 = Path("./checkpoints/matched350m_local64/matched350m_local64.pt")
+BPE_350 = Path("./checkpoints/matched350m_bpe/matched350m_bpe.pt")
 BPE_TOK = ROOT / "checkpoints" / "bpe_8k_real_v2"
-OUT = Path("${LCT_DATA}/experiments/paper_v3")
+OUT = Path("./experiments/paper_v3")
 RESEARCH = ROOT / "research"
 WINDOW = 2048
 BOOT_N = 10_000
@@ -520,8 +520,8 @@ def run_downstream_items(device) -> dict:
     items["lambada"] = lamb
 
     # fact200 from dumps
-    fact_loc = Path("${LCT_DATA}/experiments/matched350m_local64_eval/final_base_checks/fact200.json")
-    fact_bpe = Path("${LCT_DATA}/experiments/matched350m_bpe_eval/full_benchmarks_fact200_answers.json")
+    fact_loc = Path("./experiments/matched350m_local64_eval/final_base_checks/fact200.json")
+    fact_bpe = Path("./experiments/matched350m_bpe_eval/full_benchmarks_fact200_answers.json")
     fl = json.loads(fact_loc.read_text(encoding="utf-8"))
     fb = json.loads(fact_bpe.read_text(encoding="utf-8"))
 
@@ -546,8 +546,8 @@ def run_downstream_items(device) -> dict:
     }
 
     # CharBench few-shot
-    cfl = json.loads(Path("${LCT_DATA}/experiments/matched350m_local64_eval/charbench_fewshot.json").read_text())
-    cfb = json.loads(Path("${LCT_DATA}/experiments/matched350m_bpe_eval/charbench_fewshot.json").read_text())
+    cfl = json.loads(Path("./experiments/matched350m_local64_eval/charbench_fewshot.json").read_text())
+    cfb = json.loads(Path("./experiments/matched350m_bpe_eval/charbench_fewshot.json").read_text())
 
     def cb_details(obj):
         if "details" in obj:
@@ -659,7 +659,7 @@ def run_charbench_ft_items(device, m_loc=None, m_bpe=None) -> dict:
     ft_bpe = Path("${HOME}/charbench_lr_sweep_matched_bpe/lr_5e-05/bpe_ft_lr5e-05.pt")
     # host-b may hold the matched local64 FT; copy to NAS-local cache if missing
     if not ft_loc.exists():
-        nas_copy = Path("${LCT_DATA}/experiments/paper_v3/local64_ft_lr5e-05.pt")
+        nas_copy = Path("./experiments/paper_v3/local64_ft_lr5e-05.pt")
         if nas_copy.exists():
             ft_loc = nas_copy
         else:
@@ -668,7 +668,7 @@ def run_charbench_ft_items(device, m_loc=None, m_bpe=None) -> dict:
                 ft_loc = cands[0]
     frozen = {"local64": 0.5367, "bpe": 0.4000}
     meta = {"frozen": frozen, "ft_ckpt_local64": str(ft_loc), "ft_ckpt_bpe": str(ft_bpe), "exists": {"local64": ft_loc.exists(), "bpe": ft_bpe.exists()}}
-    data_dir = Path("${LCT_DATA}/data/charbench")
+    data_dir = Path("./data/charbench")
     if not ft_loc.exists() or not ft_bpe.exists():
         meta["error"] = "FT checkpoints missing; cannot build per-item FT hits"
         return {"items": [], "meta": meta}
@@ -704,12 +704,12 @@ def doc_overlap_10b() -> dict:
     print("=== document overlap 10B ===", flush=True)
     # Shared permutation file
     perm_cands = [
-        Path("${LCT_DATA}/data/real_v3/doc_perm_seed0.npy"),
+        Path("./data/real_v3/doc_perm_seed0.npy"),
         Path("${HOME}/data/real_v3/doc_perm_seed0.npy"),
         ROOT / "data" / "real_v3" / "doc_perm_seed0.npy",
     ]
     spans_cands = [
-        Path("${LCT_DATA}/data/real_v3/doc_spans.npy"),
+        Path("./data/real_v3/doc_spans.npy"),
         Path("${HOME}/data/real_v3/doc_spans.npy"),
     ]
     perm = next((p for p in perm_cands if p.exists()), None)
@@ -779,7 +779,7 @@ def _overlap_from_checkpoints() -> dict:
                 out[f"{label}_{k}"] = blob[k]
     # Compare launch scripts on disk
     for script in [
-        ROOT / "scripts" / "_remote_spark2_anneal_then_matched.sh",
+        ROOT / "scripts" / "_remote_anneal_then_matched.sh",
         ROOT / "scripts" / "run_matched_bpe_pretok_resume.sh",
         ROOT / "scripts" / "train_bpe_matched350m.py",
     ]:
@@ -799,7 +799,7 @@ def make_gap_figure():
 
     curve_path = RESEARCH / "curve_350m_bpb.json"
     if not curve_path.exists():
-        curve_path = Path("${LCT_DATA}/experiments/paper_v2/curve_350m_bpb.json")
+        curve_path = Path("./experiments/paper_v2/curve_350m_bpb.json")
     curve = json.loads(curve_path.read_text(encoding="utf-8"))
 
     def series(kind):

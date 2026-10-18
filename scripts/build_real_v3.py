@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Pack real_v3. Default output is the NAS training volume."""
+"""Pack real_v3. Default output is ./data/real_v3."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from lct.data.real_v3 import write_real_v3
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--out", type=Path, default=Path("${LCT_DATA}/data/real_v3"))
+    parser.add_argument("--out", type=Path, default=Path("./data/real_v3"))
     parser.add_argument("--target-train-bytes", type=int, default=70_000_000_000)
     parser.add_argument("--target-val-bytes", type=int, default=5_000_000)
     parser.add_argument("--fineweb-config", default="sample-100BT")

@@ -22,11 +22,11 @@ from lct.train.ladder import bpb_from_nats  # noqa: E402
 from matched_bpe_load import load_matched_bpe  # noqa: E402
 import paper_v3_recompute as v3  # noqa: E402
 
-VAL = Path("${LCT_DATA}/data/real_v3")
-OUT = Path("${LCT_DATA}/experiments/paper_v4")
+VAL = Path("./data/real_v3")
+OUT = Path("./experiments/paper_v4")
 RESEARCH = ROOT / "research"
-BPE_DIR = Path("${LCT_DATA}/checkpoints/matched350m_bpe")
-LOCAL_DIR = Path("${LCT_DATA}/checkpoints/matched350m_local64")
+BPE_DIR = Path("./checkpoints/matched350m_bpe")
+LOCAL_DIR = Path("./checkpoints/matched350m_local64")
 CTX = 2048
 STRIDE = 512
 BOOT_N = 10_000
@@ -200,7 +200,7 @@ def bootstrap_delta(rows: list[dict], n: int = BOOT_N, seed: int = BOOT_SEED) ->
 def window_reference() -> dict:
     path = RESEARCH / "paired_bpb_diff.json"
     if not path.exists():
-        path = Path("${LCT_DATA}/experiments/paper_v3/paired_bpb_diff.json")
+        path = Path("./experiments/paper_v3/paired_bpb_diff.json")
     return json.loads(path.read_text(encoding="utf-8"))
 
 
@@ -314,7 +314,7 @@ def run_curve(device) -> dict:
     print("=== curve corrected BPE denom ===", flush=True)
     old_path = RESEARCH / "curve_350m_bpb.json"
     if not old_path.exists():
-        old_path = Path("${LCT_DATA}/experiments/paper_v2/curve_350m_bpb.json")
+        old_path = Path("./experiments/paper_v2/curve_350m_bpb.json")
     old = json.loads(old_path.read_text(encoding="utf-8"))
     curve = {
         "formula": "BPB = sum(nats)/(ln2 * scored_bytes); BPE scored_bytes = target-token UTF-8 lengths",

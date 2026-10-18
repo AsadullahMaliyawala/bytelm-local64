@@ -1,0 +1,18 @@
+{
+  "target_train_bytes": 70000000000,
+  "target_val_bytes": 5000000,
+  "min_score": 3.0,
+  "fineweb_config": "sample-100BT",
+  "perm_seed": 0,
+  "val_bytes_per_source": {
+    "fineweb-edu": 4251080,
+    "codeparrot-clean-train": 503270,
+    "open-web-math": 275881
+  },
+  "licenses": {
+    "fineweb-edu": "ODC-By 1.0",
+    "codeparrot-clean-train": "MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC",
+    "open-web-math": "ODC-By 1.0 (Hugging Face dataset card open-web-math/open-web-math)"
+  },
+  "done": true
+}

@@ -5,5 +5,8 @@ __pycache__/
 dist/
 build/
 .pytest_cache/
-*.pt
+weights/*.pt
+d6_release_verify.json
+d7_release_verify.json
 .DS_Store
+data/real_v3/*.bin

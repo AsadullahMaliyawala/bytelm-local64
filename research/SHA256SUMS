@@ -1,0 +1,13 @@
+# SHA256SUMS — matched 350M twins (do not re-save checkpoints)
+# FULL = sha256 of entire file; TENSOR = sha256 over sorted model state_dict
+# (key, dtype, shape, raw bytes)
+FULL 5080ed9b27bf491465b335f8dff6ceea200ec52d1e7fe4bcbd08a9cb35d0bd0a  matched350m_local64.pt
+TENSOR 33522128c54a8b2660b8075faaf3a4753ef786d31e5890700919751b84d5a350  matched350m_local64.pt
+FULL 98f4a77c181b40a88fe7a10ff7aa7617a6a7026bd196e05cd9e52cb4349973e6  matched350m_bpe.pt
+TENSOR 53986bd88bc89d6b784c3e4a7e235d6580eae95e890ad4373449fcf289187a09  matched350m_bpe.pt
+
+# SHA256SUMS — frozen real_v3 validation bins
+# FULL = sha256 of entire file
+FULL 07a3e3f93dbd15405ffabeca4b4eee65fdf24b2a9a63047ce0b78e73d1b85614  val_text.bin
+FULL efe3f0901fa02edfd07f1761922c85e82d8a387e10fd1c529eb8bef6fc7bae3e  val_code.bin
+FULL add690396108cb0173f9d39086e0466bb2d065d0966f82e7dfb3f0ed9e3c4264  val_math.bin

@@ -88,8 +88,8 @@ Artifact: `research/scale_120m_350m_bpb.json`.
 
 | Twin | Path | SHA-256 full file | SHA-256 model tensors | step | seen |
 |---|---|---|---|---:|---:|
-| local64 | `${LCT_DATA}/checkpoints/matched350m_local64/matched350m_local64.pt` | `5080ed9b27bf491465b335f8dff6ceea200ec52d1e7fe4bcbd08a9cb35d0bd0a` | `33522128c54a8b2660b8075faaf3a4753ef786d31e5890700919751b84d5a350` | 152588 | 10000007168 |
-| BPE-8k | `${LCT_DATA}/checkpoints/matched350m_bpe/matched350m_bpe.pt` | `98f4a77c181b40a88fe7a10ff7aa7617a6a7026bd196e05cd9e52cb4349973e6` | `53986bd88bc89d6b784c3e4a7e235d6580eae95e890ad4373449fcf289187a09` | 145794 | 10000000000 |
+| local64 | `./checkpoints/matched350m_local64/matched350m_local64.pt` | `5080ed9b27bf491465b335f8dff6ceea200ec52d1e7fe4bcbd08a9cb35d0bd0a` | `33522128c54a8b2660b8075faaf3a4753ef786d31e5890700919751b84d5a350` | 152588 | 10000007168 |
+| BPE-8k | `./checkpoints/matched350m_bpe/matched350m_bpe.pt` | `98f4a77c181b40a88fe7a10ff7aa7617a6a7026bd196e05cd9e52cb4349973e6` | `53986bd88bc89d6b784c3e4a7e235d6580eae95e890ad4373449fcf289187a09` | 145794 | 10000000000 |
 
 Superseded identity hashes (do not use for D7): local64 `bcb7bd2b…` / BPE `b93b3217…` were first-32MB+size+**mtime** (audit recipe), not content-only.
 
@@ -153,8 +153,8 @@ BPE bytes/token on val: **3.415**; mean token NLL **2.318** nats; implied BPB fr
 
 | Twin | Path | SHA-256 head |
 |---|---|---|
-| local64 | `${LCT_DATA}/checkpoints/ladder120_shuf/ladder120_shuf_local64_s0.pt` | `ffd39dff10487c3725706f24276006278c4918470d96fe05af1ed9330a69e23c` |
-| BPE | `${LCT_DATA}/checkpoints/ladder120_shuf/ladder120_shuf_bpe_s0.pt` | `b3058cd8e7a30ba9cb7442f689948a340383cc58e10ab42d3abfd1ef1edf3d04` |
+| local64 | `./checkpoints/ladder120_shuf/ladder120_shuf_local64_s0.pt` | `ffd39dff10487c3725706f24276006278c4918470d96fe05af1ed9330a69e23c` |
+| BPE | `./checkpoints/ladder120_shuf/ladder120_shuf_bpe_s0.pt` | `b3058cd8e7a30ba9cb7442f689948a340383cc58e10ab42d3abfd1ef1edf3d04` |
 
 ---
 

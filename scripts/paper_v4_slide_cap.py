@@ -18,9 +18,9 @@ import paper_v4_recompute as v4  # noqa: E402
 from lct.train.ladder import bpb_from_nats  # noqa: E402
 from matched_bpe_load import load_matched_bpe  # noqa: E402
 
-OUT = Path("${LCT_DATA}/experiments/paper_v4")
+OUT = Path("./experiments/paper_v4")
 RESEARCH = ROOT / "research"
-VAL = Path("${LCT_DATA}/data/real_v3")
+VAL = Path("./data/real_v3")
 FILES = {"text": "val_text.bin", "code": "val_code.bin", "math": "val_math.bin"}
 DOMAINS = ("text", "code", "math")
 SEP = 0x1E

@@ -15,13 +15,13 @@ import paper_v4_recompute as v4  # noqa: E402
 import paper_v8_matched_span as ms  # noqa: E402
 from matched_bpe_load import load_matched_bpe  # noqa: E402
 
-OUT = Path("${LCT_DATA}/experiments/paper_v10")
+OUT = Path("./experiments/paper_v10")
 RESEARCH = ROOT / "research"
-VAL = Path("${LCT_DATA}/data/real_v3")
+VAL = Path("./data/real_v3")
 FILES = {"text": "val_text.bin", "code": "val_code.bin", "math": "val_math.bin"}
 DOMAINS = ("text", "code", "math")
-LOC = Path("${LCT_DATA}/checkpoints/matched350m_local64/matched350m_local64.pt")
-BPE = Path("${LCT_DATA}/checkpoints/matched350m_bpe/matched350m_bpe.pt")
+LOC = Path("./checkpoints/matched350m_local64/matched350m_local64.pt")
+BPE = Path("./checkpoints/matched350m_bpe/matched350m_bpe.pt")
 EXPECTED = {
     "overall": {"local64": 0.9633564469210495, "bpe": 0.915476456185929},
     "text": {"local64": 0.9906911761998325, "bpe": 0.9447898423888139},
