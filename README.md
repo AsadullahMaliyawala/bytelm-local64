@@ -5,16 +5,15 @@ sliding local decoder) with an **8k byte-level BPE** matched baseline, trained
 on the same $10^{10}$ raw bytes (real_v3). Primary likelihood protocol:
 **matched-span** document sliding.
 
-**Paper:** arXiv link coming — `ARXIV_LINK`
+**Paper:** arXiv link coming
 
 ```bibtex
 @article{bytelm-local64,
   title   = {Byte Patches versus {BPE} at Matched Data:
              A Matched-Twin Comparison at {350M} Parameters},
-  author  = {[AUTHORS]},
-  journal = {arXiv preprint arXiv:[ARXIV_ID]},
+  author  = {Asadullah Maliyawala},
   year    = {2026},
-  url     = {ARXIV_LINK}
+  note    = {Preprint}
 }
 ```
 
@@ -26,8 +25,8 @@ checkpoints. Training / validation **data** keep their upstream licences
 
 | Twin | Hugging Face | Checkpoint file |
 |---|---|---|
-| local64 350M | [HF_LINK_LOCAL64](HF_LINK_LOCAL64) | `matched350m_local64.pt` |
-| BPE-8k 350M | [HF_LINK_BPE](HF_LINK_BPE) | `matched350m_bpe.pt` |
+| local64 350M | [bytelm-local64-350m](https://huggingface.co/Asadullah1569/bytelm-local64-350m) | `matched350m_local64.pt` |
+| BPE-8k 350M | [bytelm-bpe8k-350m-baseline](https://huggingface.co/Asadullah1569/bytelm-bpe8k-350m-baseline) | `matched350m_bpe.pt` |
 
 Download **both** `.pt` files into `./weights/`. The 8k BPE vocab
 `tokenizer/bpe.json` is included in this repository. Weights are on Hugging
@@ -47,7 +46,8 @@ CharBench `becda801323a53aa4e558e26b50544356532f487e3717d693a450fe0209a02a8`
 ## Validation data
 
 Frozen real_v3 validation bins are **not** in this git tree. Download them from
-Hugging Face ([HF_LINK_VAL](HF_LINK_VAL)) into `./data/real_v3/`:
+Hugging Face ([bytelm-local64-val](https://huggingface.co/datasets/Asadullah1569/bytelm-local64-val))
+into `./data/real_v3/`:
 
 | File | Bytes | SHA-256 |
 |---|---:|---|
@@ -85,7 +85,7 @@ python -m pip install -e .
 # download matched350m_local64.pt and matched350m_bpe.pt into ./weights/
 # (links in the Weights table above)
 # download val_text.bin, val_code.bin, val_math.bin into ./data/real_v3/
-# (link HF_LINK_VAL)
+# (https://huggingface.co/datasets/Asadullah1569/bytelm-local64-val)
 
 python scripts/release_d7_hash_check.py \
   --ckpt-dir ./weights \
@@ -139,7 +139,8 @@ Face datasets. Without a pinned Hugging Face dataset revision and the frozen
 build-state / intermediate counters from the original pack
 (build_state.json, full train.bin, full manifest.json — not shipped),
 a fresh run is **not guaranteed** to match the SHA-256 table above. For exact
-Table 3 reproduction, download the frozen bins from [HF_LINK_VAL](HF_LINK_VAL)
+Table 3 reproduction, download the frozen bins from
+[bytelm-local64-val](https://huggingface.co/datasets/Asadullah1569/bytelm-local64-val)
 into `./data/real_v3/` and verify their hashes. The full `train.bin` (~70 GB)
 is **not** shipped.
 
@@ -175,8 +176,9 @@ is **not** shipped.
 ## Dataset attributions
 
 Full training corpora are **not** redistributed. Frozen validation bins are
-hosted separately on Hugging Face ([HF_LINK_VAL](HF_LINK_VAL)) and keep their
-**upstream** licences (Apache-2.0 applies to code only):
+hosted separately on Hugging Face
+([bytelm-local64-val](https://huggingface.co/datasets/Asadullah1569/bytelm-local64-val))
+and keep their **upstream** licences (Apache-2.0 applies to code only):
 
 | Source | Licence |
 |---|---|
@@ -185,6 +187,7 @@ hosted separately on Hugging Face ([HF_LINK_VAL](HF_LINK_VAL)) and keep their
 | OpenWebMath | ODC-By 1.0; also Common Crawl Terms of Use |
 
 The validation text is raw web data and may contain personal information
-(including email addresses). Removal requests: `CONTACT`.
+(including email addresses). Removal requests:
+https://github.com/AsadullahMaliyawala/bytelm-local64/issues
 
 See also `NOTICE` and `research/FROZEN_RESULTS.md`.
