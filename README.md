@@ -5,15 +5,18 @@ sliding local decoder) with an **8k byte-level BPE** matched baseline, trained
 on the same $10^{10}$ raw bytes (real_v3). Primary likelihood protocol:
 **matched-span** document sliding.
 
-**Paper:** arXiv link coming
+**Paper:** [arXiv:2611.31790](https://arxiv.org/abs/2611.31790)
 
 ```bibtex
-@article{bytelm-local64,
-  title   = {Byte Patches versus {BPE} at Matched Data:
-             A Matched-Twin Comparison at {350M} Parameters},
-  author  = {Asadullah Maliyawala},
-  year    = {2026},
-  note    = {Preprint}
+@misc{bytelm-local64,
+  title         = {Byte Patches versus {BPE} at Matched Data:
+                   A Matched-Twin Comparison at {350M} Parameters},
+  author        = {Maliyawala, Asadullah and Lisal, Andrej},
+  year          = {2026},
+  eprint        = {2611.31790},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2611.31790}
 }
 ```
 
